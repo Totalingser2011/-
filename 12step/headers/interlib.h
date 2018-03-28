@@ -1,0 +1,18 @@
+enum { COM_QTEXT = 0, COM_SUBJECT = 1, COM_QTEST = 2, COM_QCOUNT = 3 };
+struct test;
+void wr(const int des, const void* a, const int s);
+void rd(const int des, void* a, const int s);
+char* scan(int descr);
+void send_qtext(int in, int out, struct test* tests_data);
+void send_subject(int in, int out, struct test* tests_data);
+void send_result(int in, int out, struct test* test_data);
+void send_qnumber(int in, int out, struct test* tests_data);
+int waiting_for_command(int in, int out, struct test* tests_data);
+void ask_qnumber(int in);
+int get_qnumber(int out);
+void ask_subject(int in);
+char* get_subject(int out);
+char* ask_qtext(int in, int i);
+char* get_qtext(int out);
+void ask_result(int in, char* s, int i);
+int get_result(int out);
